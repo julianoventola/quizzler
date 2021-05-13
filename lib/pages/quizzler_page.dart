@@ -78,6 +78,19 @@ class _QuizPageState extends State<QuizPage> {
               child: Text('False'),
             ),
           ),
+        ),
+        // refact: improve score keeper
+        Row(
+          children: [
+            Icon(
+              Icons.check,
+              color: Colors.green,
+            ),
+            Icon(
+              Icons.close,
+              color: Colors.red,
+            ),
+          ],
         )
       ],
     );
