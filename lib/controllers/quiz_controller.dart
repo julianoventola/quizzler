@@ -7,10 +7,10 @@ class QuizController {
     Question(
         questionText:
             'Uma pessoa adulta normalmente dorme pelo menos 6 horas por dia!',
-        questionAnswer: false),
+        questionAnswer: true),
     Question(
         questionText: 'Estudar é o melhor para o seu furuto!',
-        questionAnswer: false),
+        questionAnswer: true),
   ];
 
   bool checkAnswer(bool value) {
@@ -25,6 +25,10 @@ class QuizController {
     if (isFinished()) {
       _questionNumber++;
     }
+  }
+
+  void startAgain() {
+    _questionNumber = 0;
   }
 
   bool shouldAddIcon(int answers) => answers < _questions.length;

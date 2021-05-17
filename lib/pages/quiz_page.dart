@@ -11,13 +11,13 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
-
-  // todo: 1 - add a reset button and an alert dialog
+  var score = 0;
 
   void questionValidation(value) {
     setState(() {
       if (quizController.shouldAddIcon(scoreKeeper.length)) {
         var result = quizController.checkAnswer(value);
+        score += result ? 10 : 0;
         scoreKeeper.add(
           Icon(
             result ? Icons.check : Icons.close,
@@ -26,6 +26,14 @@ class _QuizPageState extends State<QuizPage> {
         );
         quizController.nextQuestion();
       }
+    });
+  }
+
+  void resetGame() {
+    setState(() {
+      score = 0;
+      scoreKeeper = [];
+      quizController.startAgain();
     });
   }
 
@@ -43,27 +51,52 @@ class _QuizPageState extends State<QuizPage> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 18,
+                fontFamily: 'PressStart2P',
               ),
             ),
           ),
         ),
         QuizButton(
-            title: 'True',
+            title: 'Verdadeiro',
             color: Colors.blue,
             value: true,
             onPressed: () {
               questionValidation(true);
             }),
         QuizButton(
-            title: 'False',
+            title: 'Falso',
             color: Colors.red,
             value: false,
             onPressed: () {
               questionValidation(false);
             }),
-        // refact: improve score keeper
-        Row(children: scoreKeeper)
+        Row(children: scoreKeeper),
+        Row(
+          children: [
+            Expanded(
+              flex: 4,
+              child: Text(
+                'Score: $score pontos',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: score > 0 ? Colors.green : Colors.white,
+                  fontSize: 20,
+                  fontFamily: 'PressStart2P',
+                ),
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                icon: Icon(
+                  Icons.refresh,
+                  color: Colors.yellow,
+                ),
+                onPressed: resetGame,
+              ),
+            )
+          ],
+        ),
       ],
     );
   }
