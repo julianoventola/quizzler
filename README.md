@@ -1,16 +1,31 @@
-# quizzler
+# Quizzler App - [![Flutter](https://img.shields.io/badge/Flutter-dart-white?labelColor=blue&style=flat&link=https://flutter.dev/)](https://flutter.dev/)
 
-A new Flutter project.
+<h1 align="center">
+  <p>❓A simple Quiz App❓</p>
+  <img width="427" src= "./quizzler.gif">
+</h1>
+
+# Features
+
+- Single page with a question to answer 'true' or 'false'
+- Score control for each right answer
+- Reset button to start again quiz
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+- Clone the repository
+- run in cmd:
+  ```cmd
+  flutter pub get
+  flutter run
+  ```
 
-A few resources to get you started if this is your first Flutter project:
+## Dependencieis
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+| Lib               | Link                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------ |
+| PressStart2P Font | [Google font](https://fonts.google.com/specimen/Press+Start+2P?query=Press+Start+2P) |
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Device
+
+- Tested in Pixel 4 - Android 11
